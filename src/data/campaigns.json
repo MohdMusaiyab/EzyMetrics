@@ -1,0 +1,28 @@
+{
+    "campaigns": [
+      {
+        "id": 1,
+        "name": "Summer Sale 2024",
+        "startDate": "2024-06-01T00:00:00Z",
+        "endDate": "2024-08-31T23:59:59Z",
+        "budget": 15000.00,
+        "createdAt": "2024-05-15T10:00:00Z"
+      },
+      {
+        "id": 2,
+        "name": "Back to School",
+        "startDate": "2024-08-01T00:00:00Z",
+        "endDate": "2024-09-30T23:59:59Z",
+        "budget": 25000.00,
+        "createdAt": "2024-07-15T09:00:00Z"
+      },
+      {
+        "id": 3,
+        "name": "Holiday Special",
+        "startDate": "2024-11-15T00:00:00Z",
+        "endDate": "2024-12-31T23:59:59Z",
+        "budget": 35000.00,
+        "createdAt": "2024-10-01T08:00:00Z"
+      }
+    ]
+  }

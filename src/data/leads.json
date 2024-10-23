@@ -1,0 +1,44 @@
+{
+    "leads": [
+      {
+        "id": 1,
+        "name": "John Smith",
+        "email": "john.smith@email.com",
+        "source": "LinkedIn",
+        "createdAt": "2024-10-15T08:30:00Z",
+        "campaignId": 1
+      },
+      {
+        "id": 2,
+        "name": "Sarah Johnson",
+        "email": "sarah.j@company.com",
+        "source": "Website",
+        "createdAt": "2024-10-15T09:45:00Z",
+        "campaignId": 1
+      },
+      {
+        "id": 3,
+        "name": "Michael Brown",
+        "email": "michael.brown@gmail.com",
+        "source": "Facebook",
+        "createdAt": "2024-10-16T10:15:00Z",
+        "campaignId": 2
+      },
+      {
+        "id": 4,
+        "name": "Emma Wilson",
+        "email": "emma.wilson@outlook.com",
+        "source": "Twitter",
+        "createdAt": "2024-10-16T14:20:00Z",
+        "campaignId": 3
+      },
+      {
+        "id": 5,
+        "name": "David Lee",
+        "email": "david.lee@business.com",
+        "source": "Trade Show",
+        "createdAt": "2024-10-17T11:30:00Z",
+        "campaignId": 2
+      }
+    ]
+  }
