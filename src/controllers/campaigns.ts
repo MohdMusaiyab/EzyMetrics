@@ -18,22 +18,22 @@ export const getAllCampaginsController = async (
 ) => {
   try {
     for (const campaign of campaignsData.campaigns) {
-      // Check if a campaign with the same id already exists
+      
       const existingCampaign = await prisma.campaign.findUnique({
         where: {
           id: campaign.id,
         },
       });
 
-      // If no existing campaign, create a new one
+      
       if (!existingCampaign) {
         await prisma.campaign.create({
           data: {
             name: campaign.name,
-            startDate: new Date(campaign.startDate), // Convert string to Date
-            endDate: new Date(campaign.endDate), // Convert string to Date
+            startDate: new Date(campaign.startDate), 
+            endDate: new Date(campaign.endDate), 
             budget: campaign.budget,
-            createdAt: new Date(campaign.createdAt), // Convert string to Date
+            createdAt: new Date(campaign.createdAt), 
           },
         });
       } else {
@@ -50,7 +50,7 @@ export const campaignBudgetAlertController = async (
   res: Response
 ) => {
   try {
-    const { campaignId, threshold } = req.body; // Extract campaignId and threshold from the request body
+    const { campaignId, threshold } = req.body; 
     const campaign = campaignsData.campaigns.find((c) => c.id === campaignId);
 
     if (!campaign) {
@@ -60,8 +60,8 @@ export const campaignBudgetAlertController = async (
       });
     }
 
-    const spentBudget = calculateSpentBudget(campaign!); // Implement your budget calculation logic
-    const exceedThreshold = threshold || 0.9; // Default threshold is 90% if not provided
+    const spentBudget = calculateSpentBudget(campaign!); 
+    const exceedThreshold = threshold || 0.9; 
 
     if (spentBudget > exceedThreshold * campaign?.budget!) {
       // Send an email notification if the budget exceeds the threshold
@@ -89,15 +89,14 @@ export const campaignBudgetAlertController = async (
 };
 
 const calculateSpentBudget = (campaign: Campaign): number => {
-  // For now, assume that we have spent a certain portion of the budget
-  return 0.95 * campaign.budget; // Example: 95% of the budget spent
+  return 0.95 * campaign.budget; 
 };
 const sendEmailNotification = async (
   campaign: Campaign,
   spentBudget: number,
   threshold: number
 ): Promise<void> => {
-  // Configure Nodemailer transport using environment variables
+  
   const transporter = nodemailer.createTransport({
     service: process.env.EMAIL_SERVICE,
     auth: {
@@ -106,10 +105,10 @@ const sendEmailNotification = async (
     },
   });
 
-  // Define the email content
+  
   const mailOptions: nodemailer.SendMailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_RECIPIENT, // Load recipient from env
+    to: process.env.EMAIL_RECIPIENT, 
     subject: `Budget Alert for Campaign: ${campaign.name}`,
     text: `The campaign "${campaign.name}" has exceeded ${
       threshold * 100
@@ -119,6 +118,6 @@ const sendEmailNotification = async (
            Please take action accordingly.`,
   };
 
-  // Send the email
+  
   await transporter.sendMail(mailOptions);
 };

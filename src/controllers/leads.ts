@@ -11,7 +11,7 @@ export const getAllLeadsController = async (req: Request, res: Response) => {
         },
       });
 
-      // If no existing lead, create a new one
+      
       if (!existingLead) {
         await prisma.lead.create({
           data: {
